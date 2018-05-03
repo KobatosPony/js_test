@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>价格计算器</title>
+    <link rel="stylesheet" href="style/index.css">
+</head>
+<body>
+    <form name="totalPrice">
+        <div class="form_ctrl">
+            <label>单价:</label>
+            <input type="text" name="unitPrice">
+        </div>
+        <div class="form_ctrl">
+            <label>数量:</label>
+            <input type="text" name="count">
+        </div>
+        <div class="form_ctrl">
+            <label>总价:</label>
+            <span id="total">￥0</span>
+        </div>
+        <div class="button_ctrl">
+            <label>计算总价:</label>
+            <button type="button" id="btnTotal">计算总价</button>
+        </div>
+    </form>
+<script src="js/index.js"></script>
+<script src="js/test.js"></script>
+</body>
+</html>
