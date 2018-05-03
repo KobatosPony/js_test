@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数据的加载</title>
+    <link rel="stylesheet" href="style/index.css">
+</head>
+<body>
+    <main>
+        <!-- 操作按钮组 -->
+        <div class="btn-group">
+            <button id="btnLoadData" type="button" value="加载数据" onclick="loadData(pokemon)">加载数据
+            </button>
+            <button id="btnLoadData" type="button" value="删除所选" onclick="deleteSelect()">删除所选行
+            </button>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" id="all-check" onclick="allSelect()"></th>
+                        <th>姓名</th>
+                        <th>系列</th>
+                        <th>年龄</th>
+                        <th>性别</th>
+                        <th>技能</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+        <!-- 数据显示部分 -->
+        <div></div>
+    </main>
+<script src="js/test-data.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>

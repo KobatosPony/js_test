@@ -1,0 +1,52 @@
+@charset "utf-8";
+
+html,body{
+    margin: 0;
+    font: 16px "Microsoft Yahei","苹方",sans-serif;
+}
+
+input,select,textarea,button{
+    padding: 6px;
+    font: 15px "Microsoft Yahei","苹方",sans-serif;
+}
+
+main {
+    width: 960px;
+    margin: 0 auto;
+}
+/* 操作按钮组 */
+.btn-group{
+    padding: 10px 0;
+
+}
+/* 数据表格 */
+.data-table, .data-table th, .data-table td{
+    border: 1px solid #999999;
+}
+
+.data-table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.data-table thead{
+    background-color: #5a5a5a;
+    color: #fff;
+}
+
+.data-table tbody tr:nth-child(even){
+    background-color: #f3f3f3;
+}
+
+.data-table th, .data-table td{
+    padding: 6px;
+    text-align: left;
+    font-weight: normal;
+}
+.delete{
+    color: purple
+}
+.delete:hover{
+    cursor: pointer;
+    color:wheat;
+}
