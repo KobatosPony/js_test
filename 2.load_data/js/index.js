@@ -9,6 +9,9 @@ window.onload = function(){
  */
 
  function loadData(data){
+     // 清空数据
+    document.getElementsByTagName('tbody')[0].innerHTML = '';
+
      // 获取数据长度
      var dataLeng = data.length;
 
@@ -18,15 +21,6 @@ window.onload = function(){
      // 开始向表格载入数据
      // ES6的写法
      for(var i = 0; i < dataLeng; i++){
-        // tbody.innerHTML += `
-        //     <tr>
-        //         <td>${data[i].name}</td>
-        //         <td>${data[i].series}</td>
-        //         <td>${data[i].age}</td>
-        //         <td>${data[i].gender}</td>
-        //         <td>${data[i].skill}</td>
-        //     </tr>
-        // `;
         // 高可复用性的写法
         tbody.innerHTML += '<tr></tr>'
 
@@ -41,7 +35,7 @@ window.onload = function(){
             lastTr.innerHTML += '<td>'+data[i][x] + '</td>';
         }
 
-        lastTr.innerHTML += '<td><span class="delete" onclick="deleteItem(this)">删除</span></td>'
+        lastTr.innerHTML += '<td><button type="button" class="delete" onclick="deleteItem(this)">删除</button></td>'
      };
  }
 
@@ -63,39 +57,55 @@ function allSelect(){
 }
 
 function updateStatus(){
+    // 定义属性和flag
     flag = true;
     var totalTag = document.getElementById("all-check");
     var listTag = document.getElementsByName("check-list");
+    totalTag.indeterminate = false;
+
+    // 如果没有数据则多选框设为不选择状态
+    if(!listTag.length){
+        totalTag.checked = false;
+        return;
+    }
+
     for(var i = 0;i < listTag.length;i++){
         if(!listTag[i].checked){
             totalTag.checked = false;
             flag = false;
         }
+        else{
+            totalTag.indeterminate = true;
+        }
     }
     if(flag){
         totalTag.checked = true;
+        totalTag.indeterminate = false;
     }
 }
 
 // 删除数据
 function deleteItem(index){
-    index.parentNode.parentNode.remove();
+    if(confirm("是否删除!")){
+        index.parentNode.parentNode.remove();
+        updateStatus();
+    }
 }
 
 // 删除所选
 function deleteSelect(){
-    // 定义删除的项索引列表
-    var delete_arr = []
-    var totalTag = document.getElementById("all-check");
-    var listTag = document.getElementsByName("check-list");
-    for(var i = 0;i < listTag.length;i++){
-        if(listTag[i].checked){
-            delete_arr.push(i)
+    if(confirm("是否删除所选！")){
+        var totalTag = document.getElementById("all-check");
+        var listTag = document.getElementsByName("check-list");
+        for(var i = listTag.length-1;i >= 0;i--){
+            if(listTag[i].checked){
+                listTag[i].parentNode.parentNode.remove();
+            }
         }
+       
+        totalTag.checked = false;
+        updateStatus();
     }
-    for(var j = 0;j < delete_arr.length;i++){
-        listTag[delete_arr.pop()].parentNode.parentNode.remove();
-    }
-
-    totalTag.checked = false;
 }
+
+// 确认对话框

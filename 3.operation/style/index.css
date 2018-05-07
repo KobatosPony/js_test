@@ -1,5 +1,6 @@
 @charset "utf-8";
 
+/****************** 样式初始化部分 ******************/
 html,body{
     margin: 0;
     font: 16px "Microsoft Yahei","苹方",sans-serif;
@@ -9,6 +10,11 @@ input,select,textarea,button{
     padding: 6px;
     font: 15px "Microsoft Yahei","苹方",sans-serif;
 }
+
+/****************** 原子样式部分 ******************/
+
+
+/****************** 元素详细设置 ******************/
 
 main {
     width: 960px;
@@ -32,6 +38,12 @@ main {
 .data-table thead{
     background-color: #5a5a5a;
     color: #fff;
+}
+
+.data-table input[type="checkbox"]{
+    width: 16px;
+    height: 20px;
+    cursor: pointer;
 }
 
 .data-table tbody tr:nth-child(even){
