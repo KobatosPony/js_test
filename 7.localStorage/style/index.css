@@ -1,0 +1,51 @@
+@charset "utf-8";
+
+html,body{
+    margin: 0;
+    font: 16px "Microsoft Yahei","苹方",sans-serif;
+}
+
+input,select,textarea,button{
+    padding: 6px;
+    font: 15px "Microsoft Yahei","苹方",sans-serif;
+}
+
+.form_ctrl{
+    padding-top: 20px;
+}
+.button_ctrl{
+    margin-top: 20px;
+}
+.form_ctrl input{
+    border: 1px solid #999;
+    outline: none;
+    border-radius: 3px;
+    transition: box-shadow 0.3s;
+}
+.form_ctrl input:focus{
+    border: 1px solid rgb(190, 17, 243);
+    box-shadow: 0 0 12px rgba(190, 17, 243, 0.8);
+}
+/*列表样式*/
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    box-shadow: 0 10px 14px rgba(0,0,0,0.15);
+}
+ul > li{
+    padding: 10px 12px;
+    border-bottom: 1px solid #aaa;
+    cursor: pointer;
+    user-select: none;
+}
+ul >li:last-child{
+    border-bottom: none;
+}
+ul > li.checked{
+    background-color: #2396fd;
+    border-bottom: 1px solid #1586e9;
+    color: #ffffff;
+}

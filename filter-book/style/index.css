@@ -1,0 +1,120 @@
+@charset "utf-8";
+/* 样式初始化部分 */
+html,body {
+    margin: 0;
+    font: 16px "Microsoft Yahei","苹方","华文细黑",sans-serif;
+}
+input,select,textarea,button {
+    padding: 6px;
+    font: 15px "Microsoft Yahei","苹方","华文细黑",sans-serif;
+}
+
+/* 筛选列表 */
+ul.filter-book {
+    margin: 12px;
+    padding: 0;
+    list-style: none;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    box-shadow: 0 10px 14px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+}
+
+ul.filter-book > li:last-child {
+    border-bottom: none;
+}
+ul.filter-book > li {
+    padding: 10px 12px 4px;
+    background-color: #f3f3f3;
+    border-bottom: 1px solid #aaa;
+    cursor: pointer;
+    user-select: none;
+}
+/* 筛选按钮组 */
+ul.filter-book > li.filterData {
+    padding: 10px 12px;
+}
+ul.filter-book > li.filterData button {
+    width: 240px;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+    outline: none;
+}
+ul.filter-book > li > label {
+    width: 66px;
+    display: inline-block;
+}
+ul.filter-book > li > span {
+    padding: 6px 20px;
+    background-color: #fafafa;
+    border: 1px solid #acacac;
+    border-radius: 3px;
+    display: inline-block;
+    margin-bottom: 6px;
+}
+
+/* 筛选条件选中时的class */
+ul.filter-book > li > span.is_used{
+    background-color: cornflowerblue;
+}
+ul.filter-book > li > span.is_used:hover{
+    background-color: cornflowerblue;
+}
+
+ul.filter-book > li > span:hover {
+    background-color: #fff;
+    border: 1px solid #bababa;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* 表格部分 */
+.book-info {
+    max-width: 100%;
+    margin: 12px;
+    overflow: auto;
+}
+.book-info table {
+    width: 100%;
+    background-color: #f3f3f3;
+    border-collapse: collapse;
+}
+.book-info thead {
+    background-color: #4a4b4c;
+}
+.book-info thead th {
+    font-weight: normal;
+    color: #ffffff;
+}
+.book-info table, .book-info th, .book-info td {
+    border: 1px solid #acacac;
+}
+.book-info th, .book-info td {
+    padding: 6px;
+    text-align: left;
+    border-left: none;
+    border-right: none;
+}
+/* 文本不换行，且省略显示 */
+.book-info td, .book-info td div {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+/* 书名 */ 
+.book-info td .book-name{
+    max-width: 180px;
+}
+/* 书籍封面 */
+.book-info td img {
+    height: 48px;
+}
+/* 书籍描述 */
+.book-info td .describe {
+    max-width: 600px;
+}
+/* 作者 */
+.book-info td .author {
+    max-width: 160px;
+}
+

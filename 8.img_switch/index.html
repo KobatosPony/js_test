@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>img_switch</title>
+    <link href="style/index.css" rel="stylesheet">
+</head>
+<body>
+    <div class="wapper">
+        <img src="">
+    </div>
+    <div class="small-box">
+        <img src="img/1.jpg">
+        <img src="img/2.jpg">
+        <img src="img/3.jpg">
+        <img src="img/4.jpg">
+        <img src="img/5.jpg">
+    </div>
+</body>
+<script src="plugins/jquery-3.3.1.js"></script>
+<script>
+    $(function(){
+        // 设置大图的初始图片
+        default_src = $('.small-box img').eq(0).attr('src'); 
+        $('.wapper img').attr('src',default_src);
+
+        // 绑定切换事件
+        $('.small-box img').on({
+            'click':switch_img
+        })
+
+        // 根据图片数目设置样式
+        imgs = $('.small-box img');
+        imgs.css({
+            'width':((1/imgs.length)*100-2)+'%',
+            'cursor': 'pointer'
+        })
+    });
+
+    function switch_img(){
+        set_url = $('.small-box img').eq($(this).index()).attr('src');
+        $('.wapper img').attr('src',set_url);
+    }
+
+
+</script>
+</html>

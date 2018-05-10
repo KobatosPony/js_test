@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>23333</title>
+    <link href="style/index.css" rel="stylesheet">
+   
+</head>
+<body>
+   <div class="data-info">
+    <div>
+        <label>名称：</label>
+        <span class="name">暂无</span>
+    </div>
+    <div>
+        <label>创建日期：</label>
+        <span class="create-date">暂无</span>
+    </div>
+    <div>
+        <label>作者</label>
+        <span class="author">暂无</span>
+    </div>
+   </div>
+<script src="plugins/jquery-3.3.1.js"></script>
+<script>
+    $(function(){
+        $.get('http://www.aulence.com/data/test.json',function(res){
+            $('.name').text(res.name);
+            $('.create-date').text(res.createDate);
+            $('.author').text(res.author);
+        })
+       
+    })
+</script>
+</body>
+</html>

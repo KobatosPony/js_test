@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery入门</title>
+    <link rel="stylesheet" href="./style/index.css">
+</head>
+<body>
+    <ul class="filter-book">
+        <li>
+            <label>关键字：</label>
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+            <span>Java</span>
+            <span>Python</span>
+            <span>PHP</span>
+            <span>Linux</span>
+            <span>Node</span>
+        </li>
+        <li>
+            <label>作者：</label>
+            <span>Nicholas C. Zakas</span>
+            <span>Douglas Crockford</span>
+            <span>李兴华</span>
+            <span>Addy Osmani</span>
+            <span>Ben Frain</span>
+            <span>温谦</span>
+            <span>Luciano Ramalho</span>
+            <span>孔祥盛</span>
+        </li>
+        <li>
+            <label>价格：</label>
+            <span>40以下</span>
+            <span>40~70</span>
+            <span>70~100</span>
+            <span>100以上</span>
+        </li>
+        <li class="filterData">
+            <button type="button" class="btnFilterData">筛选图书</button>
+        </li>
+    </ul>
+    <div class="book-info">
+        <table>
+            <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>书名</th>
+                    <th>封面</th>
+                    <th>描述</th>
+                    <th>作者</th>
+                    <th>价格</th>
+                </tr>
+            </thead>
+            <tbody class="book-data">
+                <!-- 数据加载部分 -->
+            </tbody>
+        </table>
+    </div>
+    
+
+    <script src="./plugin/jquery.js"></script>
+    <script src="./js/index.js"></script>
+    <script>
+        // 筛选按钮点击
+        $('.filter-book>li>span').on('click',function () { 
+            $(this).toggleClass('is_used').siblings().removeClass('is_used');
+         })
+    </script>
+</body>
+</html>

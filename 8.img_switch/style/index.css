@@ -1,0 +1,27 @@
+*{
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 0;
+}
+image{
+    vertical-align:bottom;
+}
+.wapper {
+    width: 100%;
+    font-size:0px;
+}
+.wapper img{
+    width: 100%;
+    overflow: hidden;
+}
+
+.small-box{
+    width: 100%;
+    font-size:0px;
+}
+
+.small-box img{
+    margin: 1%;
+    border: 2px solid rgb(115, 102, 128);
+    border-radius: 15px;
+}  
