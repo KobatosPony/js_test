@@ -49,3 +49,35 @@ ul > li.checked{
     border-bottom: 1px solid #1586e9;
     color: #ffffff;
 }
+.wait{
+    width: 64px;
+    height: 64px;
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -32px;
+    margin-left: -32px;
+    background-image: url('../img/waiting.svg');
+    background-repeat: no-repeat;
+    animation: rotateWaiting 2s linear infinite;
+}
+#wait-layer{
+    display: none;
+    position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color:rgba(0,0,0,0.36);
+    z-index: 999;
+}
+/* 设置帧动画 */
+@keyframes rotateWaiting{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}

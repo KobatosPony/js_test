@@ -23,8 +23,7 @@
 <script>
     $(function(){
         // 设置大图的初始图片
-        default_src = $('.small-box img').eq(0).attr('src'); 
-        $('.wapper img').attr('src',default_src);
+        $('.small-box img').eq(0).trigger('click');
 
         // 绑定切换事件
         $('.small-box img').on({
@@ -37,13 +36,47 @@
             'width':((1/imgs.length)*100-2)+'%',
             'cursor': 'pointer'
         })
+
+        //调用图片轮播
+        e = setInterval(roll_img,2000);
+
+        // 触发图片的点击事件
+        $('.small-box img').eq(0).trigger('click');
+
+        // //重置轮播
+        // function resetInterval(e) { 
+        //     clearInterval(e)
+        //     e = setInterval(roll_img,2000);
+        // }
+        
+        function switch_img(){
+            var img_obj = $('.small-box img').eq($(this).index());
+            img_obj.addClass('choose').siblings().removeClass('choose');
+            set_url = img_obj.attr('src')
+            $('.wapper img').attr('src',set_url);
+            clearInterval(e);
+            e = setInterval(roll_img,2000);
+        }
     });
-
-    function switch_img(){
-        set_url = $('.small-box img').eq($(this).index()).attr('src');
-        $('.wapper img').attr('src',set_url);
+   
+    // 图片轮播函数
+    function roll_img(){
+        // 获取当前图片index和总长度
+        var index = $('.choose').index();
+        var imgs_len = $('.small-box img').length;
+        if(index===imgs_len-1){
+            var img_obj = $('.small-box img').eq(0);
+            img_obj.addClass('choose').siblings().removeClass('choose');
+            set_url = img_obj.attr('src')
+            $('.wapper img').attr('src',set_url);
+        }
+        else{
+            var img_obj = $('.small-box img').eq(index+1);
+            img_obj.addClass('choose').siblings().removeClass('choose');
+            set_url = img_obj.attr('src')
+            $('.wapper img').attr('src',set_url);
+        }
     }
-
 
 </script>
 </html>

@@ -24,4 +24,7 @@ image{
     margin: 1%;
     border: 2px solid rgb(115, 102, 128);
     border-radius: 15px;
-}  
+}
+.small-box img.choose{
+    border: 2px solid rgb(204, 199, 209);
+}

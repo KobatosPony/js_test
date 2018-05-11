@@ -9,29 +9,72 @@
    
 </head>
 <body>
+    <div>
+        <select class="choose">
+            <option value="pikachu">皮卡丘</option>
+            <option value="penhuolong">喷火龙</option>
+            <option value="miaowahua">妙蛙花</option>
+        </select>
+    </div>
    <div class="data-info">
     <div>
         <label>名称：</label>
         <span class="name">暂无</span>
     </div>
     <div>
-        <label>创建日期：</label>
-        <span class="create-date">暂无</span>
+        <label>系列：</label>
+        <span class="series">暂无</span>
     </div>
     <div>
-        <label>作者</label>
-        <span class="author">暂无</span>
+        <label>技能：</label>
+        <span class="skill">暂无</span>
     </div>
+   </div>
+   <div>
+       <form name="userInfo">
+           <div>
+                <label>账户：</label>
+                <input type="text" name="name">
+           </div>
+           <div>
+               <label>手机：</label>
+               <input type="tel" name="tel">
+           </div>
+           <div>
+                <label>密码：</label>
+                <input type="password" name="password">
+           </div>
+           <div>
+               <input class="btn-submit" type="button" value="提交">
+           </div>
+       </form>
+   </div>
+   <div id="wait-layer">
+        <i class="wait"></i>
    </div>
 <script src="plugins/jquery-3.3.1.js"></script>
 <script>
-    $(function(){
-        $.get('http://www.aulence.com/data/test.json',function(res){
+    $('.choose').on('change',function () { 
+        $.get('http://aulence.com/php/role-info.php?role='+$(this).val(),function(res){
             $('.name').text(res.name);
-            $('.create-date').text(res.createDate);
-            $('.author').text(res.author);
+            $('.series').text(res.series);
+            $('.skill').text(res.skill);
         })
-       
+     })
+
+    //  表单用post提交数据
+    $('.btn-submit').on('click',function(){
+        $('#wait-layer').fadeIn(300);
+        $.post('http://aulence.com/php/user-signup.php',
+        {
+            'name':userInfo.name.value,
+            'tel':userInfo.tel.value,
+            'pwd':userInfo.password.value
+        },function (res) { 
+            console.log(res)
+            $('#wait-layer').fadeOut(300);
+        }
+    )
     })
 </script>
 </body>
